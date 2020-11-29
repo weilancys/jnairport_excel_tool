@@ -10,10 +10,15 @@ def str_to_dt(date_str):
 def is_lt_30days_from_now(dt):
     time_span = datetime.timedelta(days=30)
     now = datetime.datetime.now()
-    return now - dt <= time_span
+    return now <= dt and now - dt <= time_span
 
 
-def find_rows_30days_from_now(excel_filename):
+def is_expired(dt):
+    now = datetime.datetime.now()
+    return dt < now
+
+
+def find_noticeable_rows(excel_filename):
     if not excel_filename.endswith(".xlsx"):
         raise ValueError("invalid excel file")
     
@@ -21,11 +26,14 @@ def find_rows_30days_from_now(excel_filename):
     source_file = openpyxl.load_workbook(excel_filename, read_only=True)
     sheet = source_file["Sheet1"]
 
-    rows_to_notice = []
+    rows_lt_30_days = []
+    rows_expired = []
     selection = sheet.values
     next(selection) # skip title row
 
     for row in selection:
         if is_lt_30days_from_now(str_to_dt(str(row[DEADLINE_COL_INDEX]))):
-            rows_to_notice.append(row)
-    return rows_to_notice
+            rows_lt_30_days.append(row)
+        if is_expired(str_to_dt(str(row[DEADLINE_COL_INDEX]))):
+            rows_expired.append(row)
+    return rows_lt_30_days, rows_expired

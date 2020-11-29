@@ -1,0 +1,4 @@
+# 列出接收人邮件地址，一行一个地址，地址中不能包含空格与非法字符
+xxx@yyyy.com
+xxxx@zzzz.net
+abcd@jojo.net
