@@ -4,7 +4,7 @@
 ```bash
 # clone this repo
 # cd into repo directory
-python setup install
+python setup.py install
 ```
 
 #### 配置方法：
