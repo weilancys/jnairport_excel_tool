@@ -22,7 +22,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     entry_points = {
-        'console_scripts': [
+        'gui_scripts': [
             'jnairport_excel_tool = JNAirport_Excel_Tool:main',
         ],
     }
