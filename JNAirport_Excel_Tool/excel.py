@@ -1,6 +1,7 @@
 import openpyxl
 import datetime
 
+
 def str_to_dt(date_str):
     FORMAT = "%Y%m%d"
     dt = datetime.datetime.strptime(date_str, FORMAT)

@@ -43,7 +43,6 @@ def get_smtp_credentials(config_dir):
         return smtp_auth
 
 
-
 def get_recipients(config_dir):
     filename = "recipients.txt"
     file_path = os.path.join(config_dir, filename)

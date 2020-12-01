@@ -40,36 +40,36 @@ def prepare_email(rows_lt_30_days, rows_expired, excel_filename, sender_email, r
         """.format(row_index=row_index+1, row=row)
         table_body_for_lt_30_days += table_row_for_lt_30_days
 
-        table_body_for_expired = ""
-        for row_index, row in enumerate(rows_expired):
-            table_row_for_expired = """
-                <tr>
-                    <td>{row_index}</td>
-                    <td>{row[0]}</td>
-                    <td>{row[1]}</td>
-                    <td>{row[2]}</td>
-                    <td>{row[3]}</td>
-                    <td>{row[4]}</td>
-                    <td>{row[5]}</td>
-                    <td>{row[6]}</td>
-                    <td>{row[7]}</td>
-                    <td>{row[8]}</td>
-                    <td>{row[9]}</td>
-                    <td>{row[10]}</td>
-                    <td>{row[11]}</td>
-                    <td>{row[12]}</td>
-                    <td>{row[13]}</td>
-                    <td>{row[14]}</td>
-                    <td>{row[15]}</td>
-                    <td>{row[16]}</td>
-                    <td>{row[17]}</td>
-                    <td>{row[18]}</td>
-                    <td>{row[19]}</td>
-                    <td>{row[20]}</td>
-                    <td>{row[21]}</td>
-                </tr>
-            """.format(row_index=row_index+1, row=row)
-            table_body_for_expired += table_row_for_expired
+    table_body_for_expired = ""
+    for row_index, row in enumerate(rows_expired):
+        table_row_for_expired = """
+            <tr>
+                <td>{row_index}</td>
+                <td>{row[0]}</td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+                <td>{row[3]}</td>
+                <td>{row[4]}</td>
+                <td>{row[5]}</td>
+                <td>{row[6]}</td>
+                <td>{row[7]}</td>
+                <td>{row[8]}</td>
+                <td>{row[9]}</td>
+                <td>{row[10]}</td>
+                <td>{row[11]}</td>
+                <td>{row[12]}</td>
+                <td>{row[13]}</td>
+                <td>{row[14]}</td>
+                <td>{row[15]}</td>
+                <td>{row[16]}</td>
+                <td>{row[17]}</td>
+                <td>{row[18]}</td>
+                <td>{row[19]}</td>
+                <td>{row[20]}</td>
+                <td>{row[21]}</td>
+            </tr>
+        """.format(row_index=row_index+1, row=row)
+        table_body_for_expired += table_row_for_expired
     
     table_head = """
     <thead>
@@ -141,8 +141,9 @@ def prepare_email(rows_lt_30_days, rows_expired, excel_filename, sender_email, r
         row_count_for_expired = len(rows_expired),
         excel_filename = excel_filename,
         table_body_for_lt_30_days = table_body_for_lt_30_days,
-        table_body_for_expired = table_body_for_expired
+        table_body_for_expired = table_body_for_expired,
     )
+
 
     html_part = MIMEText(html_msg, "html")
     email_message.attach(html_part)

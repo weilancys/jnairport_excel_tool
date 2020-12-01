@@ -12,7 +12,7 @@ class JNAirport_Excel_Tool(tk.Tk):
         self.__init_ui()
         self.smtp_auth = smtp_auth # smtp config dict
         self.recipients = recipients # recipients list
-
+        
     
     def __init_ui(self):
         self.title("济南机场 EXCEL 工具")
