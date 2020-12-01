@@ -10,7 +10,7 @@ def str_to_dt(date_str):
 def is_lt_30days_from_now(dt):
     time_span = datetime.timedelta(days=30)
     now = datetime.datetime.now()
-    return now <= dt and now - dt <= time_span
+    return now <= dt and dt - now <= time_span
 
 
 def is_expired(dt):
