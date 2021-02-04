@@ -5,7 +5,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name = 'JNAirport_Excel_Tool',
-    version = "0.0.1",
+    version = "0.0.2",
     author="lbcoder",
     author_email="lbcoder@hotmail.com",
     description="A excel helper tool for jinan airport",
