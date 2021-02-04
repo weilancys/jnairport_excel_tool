@@ -145,7 +145,7 @@ def prepare_email(rows_lt_30_days, rows_expired, excel_filename, sender_email, r
     )
 
 
-    html_part = MIMEText(html_msg, "html")
+    html_part = MIMEText(html_msg, "html", "utf-8")
     email_message.attach(html_part)
 
     email_message["From"] = sender_email
@@ -160,5 +160,5 @@ def send_notice_mail(email_message, recipients, smtp_auth):
     # smtp_client.connect()
     smtp_client.starttls()
     smtp_client.login(smtp_auth["SENDER_EMAIL"], smtp_auth["PASSWORD"])
-    smtp_client.sendmail(smtp_auth["SENDER_EMAIL"], recipients, email_message.as_string())
+    smtp_client.sendmail(smtp_auth["SENDER_EMAIL"], recipients, email_message.as_string().encode('utf-8'))
 
