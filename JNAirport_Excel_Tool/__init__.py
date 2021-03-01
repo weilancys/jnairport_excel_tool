@@ -62,5 +62,6 @@ def main():
     config_dir = makesure_app_dir()
     smtp_auth = get_smtp_credentials(config_dir)
     recipients = get_recipients(config_dir)
+    recipients = [ recip.strip('\ufeff') for recip in recipients ] # windows 7 hides an invisible character '\ufeff' at the beginning of txt files, which may lead to error here.
     tool = JNAirport_Excel_Tool(smtp_auth=smtp_auth, recipients=recipients)
     tool.mainloop()
